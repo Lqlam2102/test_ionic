@@ -1,5 +1,6 @@
+// main.js
 import { createApp } from "vue";
-import { IonicVue } from "@ionic/vue"; // Thêm IonicVue
+import { IonicVue } from "@ionic/vue";
 import App from "./App.vue";
 import router from "./router";
 import Token from "@/helpers/user/user.js";
@@ -18,20 +19,15 @@ import vue3GoogleLogin from 'vue3-google-login';
 import { getListApplications } from "./helpers/user/applications.js";
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
-
-// Thêm các CSS cần thiết cho Ionic
-import '@ionic/vue/css/core.css'; // Core Ionic CSS
+import '@ionic/vue/css/core.css';
 import '@ionic/vue/css/normalize.css';
 import '@ionic/vue/css/structure.css';
 import '@ionic/vue/css/typography.css';
-// Optional Ionic CSS utils (có thể chọn những cái cần thiết)
 import '@ionic/vue/css/padding.css';
 import '@ionic/vue/css/float-elements.css';
 import '@ionic/vue/css/text-alignment.css';
 import '@ionic/vue/css/text-transformation.css';
 import '@ionic/vue/css/flex-utils.css';
-
-// CSS hiện có của dự án
 import "@/assets/scss/config/default/app.scss";
 import "@vueform/slider/themes/default.css";
 import "@/assets/scss/mermaid.min.css";
@@ -45,21 +41,25 @@ AOS.init({
 
 async function initApp() {
   try {
-    const { getUser } = Token();
-    await getUser();
+    console.log("Starting initApp");
     await getCompanyInfor();
-    await getListApplications();
+    const { getUser } = Token();
+    const tokenString = localStorage.getItem("auth");
+    
+    if (tokenString) {
+      console.log("Token exists, calling APIs");
+      await getUser();
+      await getListApplications();
+    } else {
+      console.log("No token, skipping API calls");
+    }
   } catch (err) {
-    console.error(err);
+    console.error("initApp error:", err);
   }
 
   const app = createApp(App)
-    .use(IonicVue) // Thêm IonicVue vào ứng dụng
-    .use(PrimeVue, {
-      theme: {
-        preset: Aura
-      }
-    })
+    .use(IonicVue)
+    .use(PrimeVue, { theme: { preset: Aura } })
     .use(store)
     .use(pinia)
     .use(router)
@@ -73,8 +73,8 @@ async function initApp() {
       clientId: '755926073777-jue1nupv42300ntq60egido4nu07njve.apps.googleusercontent.com'
     });
 
-  // Đảm bảo router sẵn sàng trước khi mount
   router.isReady().then(() => {
+    console.log("App mounted successfully");
     app.mount("#app");
   });
 }

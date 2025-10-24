@@ -6,44 +6,53 @@ const PROXY = SERVER_URL + "/api";
 
 
 export const useFetch = async function (fullApiUrl) {
-    const apiUrl = validUrl(`${fullApiUrl}`)
+    const apiUrl = validUrl(fullApiUrl);
     try {
-        const response = await fetch(apiUrl, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": getAccessToken(),
-            },
-        });
-        const data = await response.json();
-        return data;
+      const response = await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": getAccessToken(),
+        },
+      });
+      if (response.status === 401) {
+        console.log("Unauthorized, redirecting to login");
+        localStorage.removeItem("auth");
+        window.location.href = "/login"; // Hoặc dùng router.push nếu trong component
+        return null;
+      }
+      const data = await response.json();
+      return data;
     } catch (error) {
-        return
+      console.error("useFetch error:", error);
+      return null;
     }
-};
-
-export const usePost = async function (url, dataPost, useProxy=true) {
-    let apiUrl = url
-    if (useProxy) {
-        apiUrl = `${PROXY}/${url}`
-    }
+  };
+  
+  export const usePost = async function (url, dataPost, useProxy = true) {
+    let apiUrl = useProxy ? `${PROXY}/${url}` : url;
     try {
-        const contenType = getContenTypeFromData(dataPost)
-        const response = await fetch(validUrl(apiUrl), {
-            method: "POST",
-            headers: {
-                ...contenType,
-                "Authorization": getAccessToken(),
-            },
-            body: dataPost,
-        });
-        /*const data = await response.json();
-        return data;*/
-        return response;
+      const contenType = getContenTypeFromData(dataPost);
+      const response = await fetch(validUrl(apiUrl), {
+        method: "POST",
+        headers: {
+          ...contenType,
+          "Authorization": getAccessToken(),
+        },
+        body: dataPost,
+      });
+      if (response.status === 401) {
+        console.log("Unauthorized, redirecting to login");
+        localStorage.removeItem("auth");
+        window.location.href = "/login";
+        return null;
+      }
+      return response;
     } catch (error) {
-        return
+      console.error("usePost error:", error);
+      return null;
     }
-};
+  };
 
 export const usePatch = async function (url, dataPost, useProxy=true) {
     let apiUrl = url

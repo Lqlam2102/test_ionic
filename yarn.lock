@@ -2096,13 +2096,13 @@
     debug "^4.0.0"
     tslib "^2.0.1"
 
-"@ionic/core@8.7.7":
-  version "8.7.7"
-  resolved "https://registry.npmjs.org/@ionic/core/-/core-8.7.7.tgz"
-  integrity sha512-XMvVkiRiB9I1Jc63RqderjHzxxiyr6KM2vBDzYBQS6rk7Fb4wC/ZyUuFgnrYKk71r1mgwYTPMy/2qrCShNXgXQ==
+"@ionic/core@7.8.6":
+  version "7.8.6"
+  resolved "https://registry.npmjs.org/@ionic/core/-/core-7.8.6.tgz"
+  integrity sha512-HAYZdEmeJgOdo2kDlZkcCGHb+zs/vjU6iv4skbVBL7y+OnSv/oC2u83Yee8S3/aY0YAxkyBgu7hLTYH13Zc2Aw==
   dependencies:
-    "@stencil/core" "4.38.0"
-    ionicons "^8.0.13"
+    "@stencil/core" "^4.12.2"
+    ionicons "^7.2.2"
     tslib "^2.1.0"
 
 "@ionic/utils-array@2.1.6":
@@ -2180,21 +2180,20 @@
     untildify "^4.0.0"
     wrap-ansi "^7.0.0"
 
-"@ionic/vue-router@^8.7.7":
-  version "8.7.7"
-  resolved "https://registry.npmjs.org/@ionic/vue-router/-/vue-router-8.7.7.tgz"
-  integrity sha512-AvM0hBzjxIMnCK6md4LT6lKJTPTMggqfs1XiTBBRDg6iiVM6tCT4ktRUlNJZHOE+GYH0//G0FvVIgNjGWGqMKg==
+"@ionic/vue-router@^7.0.0":
+  version "7.8.6"
+  resolved "https://registry.npmjs.org/@ionic/vue-router/-/vue-router-7.8.6.tgz"
+  integrity sha512-YVGqO6yyNBrwxYJfulPCLy6XBBJ0eDiy97XxLbHlaGx9WZJpf+NE+NA7N4Zj+IMTopCAX+YU/PS70OoTM7hITQ==
   dependencies:
-    "@ionic/vue" "8.7.7"
+    "@ionic/vue" "7.8.6"
 
-"@ionic/vue@^8.7.7", "@ionic/vue@8.7.7":
-  version "8.7.7"
-  resolved "https://registry.npmjs.org/@ionic/vue/-/vue-8.7.7.tgz"
-  integrity sha512-ufnxZ2yl4Ep2xgemYOdl/rsAX/Dj01X9qWvk34+mX32Vo3vGRJrI1bySt9tmaBQBZyYll8TVD/xhvdw6sVzLHQ==
+"@ionic/vue@^7.0.0", "@ionic/vue@7.8.6":
+  version "7.8.6"
+  resolved "https://registry.npmjs.org/@ionic/vue/-/vue-7.8.6.tgz"
+  integrity sha512-WVngbTA08SlVbyj4rS9krVJ2Z9Uv/MG1xItDS7WqMPeVwRNGaOiw6MkxjXRcpIz6qE0b+6EjIcte5h4nGRiDCw==
   dependencies:
-    "@ionic/core" "8.7.7"
-    "@stencil/vue-output-target" "0.10.7"
-    ionicons "^8.0.13"
+    "@ionic/core" "7.8.6"
+    ionicons "^7.0.0"
 
 "@isaacs/balanced-match@^4.0.1":
   version "4.0.1"
@@ -2929,7 +2928,7 @@
   resolved "https://registry.npmjs.org/@soda/get-current-script/-/get-current-script-1.0.2.tgz"
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
 
-"@stencil/core@^4.35.3":
+"@stencil/core@^4.0.3", "@stencil/core@^4.12.2":
   version "4.38.2"
   resolved "https://registry.npmjs.org/@stencil/core/-/core-4.38.2.tgz"
   integrity sha512-opyjA+DYAtaKmaSnuC8Bb/PH7nuO+1GhVn6amsN8XT+TlT9biptlcpz4YWETwYZ+XxtX+nLdxWbW0TVafrqsvQ==
@@ -2942,25 +2941,6 @@
     "@rollup/rollup-linux-x64-musl" "4.34.9"
     "@rollup/rollup-win32-arm64-msvc" "4.34.9"
     "@rollup/rollup-win32-x64-msvc" "4.34.9"
-
-"@stencil/core@4.38.0":
-  version "4.38.0"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-4.38.0.tgz"
-  integrity sha512-oC3QFKO0X1yXVvETgc8OLY525MNKhn9vISBrbtKnGoPlokJ6rI8Vk1RK22TevnNrHLI4SExNLbcDnqilKR35JQ==
-  optionalDependencies:
-    "@rollup/rollup-darwin-arm64" "4.34.9"
-    "@rollup/rollup-darwin-x64" "4.34.9"
-    "@rollup/rollup-linux-arm64-gnu" "4.34.9"
-    "@rollup/rollup-linux-arm64-musl" "4.34.9"
-    "@rollup/rollup-linux-x64-gnu" "4.34.9"
-    "@rollup/rollup-linux-x64-musl" "4.34.9"
-    "@rollup/rollup-win32-arm64-msvc" "4.34.9"
-    "@rollup/rollup-win32-x64-msvc" "4.34.9"
-
-"@stencil/vue-output-target@0.10.7":
-  version "0.10.7"
-  resolved "https://registry.npmjs.org/@stencil/vue-output-target/-/vue-output-target-0.10.7.tgz"
-  integrity sha512-IYxDe+SLCkwhwsWRdynE31rTK1zN3hVwwojQ/V9lrN8Gnx4PTvrUQHiRno9jFo1dk+EaBZWX9gZSmXta0ZaZew==
 
 "@svgdotjs/svg.js@^3.0.16", "@svgdotjs/svg.js@^3.2.0":
   version "3.2.4"
@@ -8585,12 +8565,12 @@ internmap@^1.0.0:
   resolved "https://registry.npmjs.org/internmap/-/internmap-2.0.3.tgz"
   integrity sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==
 
-ionicons@^8.0.13:
-  version "8.0.13"
-  resolved "https://registry.npmjs.org/ionicons/-/ionicons-8.0.13.tgz"
-  integrity sha512-2QQVyG2P4wszne79jemMjWYLp0DBbDhr4/yFroPCxvPP1wtMxgdIV3l5n+XZ5E9mgoXU79w7yTWpm2XzJsISxQ==
+ionicons@^7.0.0, ionicons@^7.2.2:
+  version "7.4.0"
+  resolved "https://registry.npmjs.org/ionicons/-/ionicons-7.4.0.tgz"
+  integrity sha512-ZK94MMqgzMCPPMhmk8Ouu6goyVHFIlw/ACP6oe3FrikcI0N7CX0xcwVaEbUc0G/v3W0shI93vo+9ve/KpvcNhQ==
   dependencies:
-    "@stencil/core" "^4.35.3"
+    "@stencil/core" "^4.0.3"
 
 ipaddr.js@^2.0.1:
   version "2.1.0"
@@ -12100,7 +12080,7 @@ vue-prismjs@^1.2.0:
   dependencies:
     prismjs "^1.6.0"
 
-vue-router@^4.5.0, vue-router@4.1.6:
+vue-router@4.1.6:
   version "4.1.6"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.1.6.tgz"
   integrity sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==
@@ -12131,7 +12111,7 @@ vue@*, "vue@^2 || ^3.2.13", "vue@^2.0.0 || >=3.0.0", vue@^2.2.0, "vue@^2.6.14 ||
     "@vue/server-renderer" "3.2.45"
     "@vue/shared" "3.2.45"
 
-vue@^3.4.38, vue@^3.5.12, vue@3.5.22:
+vue@^3.5.12, vue@3.5.22:
   version "3.5.22"
   resolved "https://registry.npmjs.org/vue/-/vue-3.5.22.tgz"
   integrity sha512-toaZjQ3a/G/mYaLSbV+QsQhIdMo9x5rrqIpYRObsJ6T/J+RyCSFwN2LHNVH9v8uIcljDNa3QzPVdv3Y6b9hAJQ==

@@ -1,17 +1,18 @@
+// helpers/user/user.js
 import { BASE_URL } from "../api/axiosHttp.js";
 import http from "../api/axiosHttp.js";
 import userState from "../state/dataUser.js";
 import { resetCompanyInfor, getCompanyInfor } from "./company.js";
 import { resetApplications, getListApplications } from "./applications.js";
+
 const Token = () => {
   async function setUser(user) {
     localStorage.setItem("auth", JSON.stringify(user));
-
     return await getUser();
   }
 
   function removeUser() {
-    http.post(`/logout/`);
+    http.post(`/logout/`).catch((err) => console.error("Logout error:", err));
     localStorage.removeItem("auth");
     userState.value = {};
     resetCompanyInfor();
@@ -40,38 +41,37 @@ const Token = () => {
           },
         });
         if (res.status === 200) {
-          await res.json().then((res) => {
-            newUser = {
-              ...res,
-              token: user,
-              isLogin: true,
-            };
-          });
-          await getCompanyInfor()
-          await getListApplications();
-        } else {
+          const data = await res.json();
+          newUser = {
+            ...data,
+            token: user,
+            isLogin: true,
+          };
+          await getCompanyInfor();
+          await getListApplications(); // Gọi API /api/user-apps/
+        } else if (res.status === 401) {
+          console.log("Unauthorized user, clearing token");
+          localStorage.removeItem("auth");
+          userState.value = {};
           if (navigate) {
-            // location.replace(`/account?next=${navigate}`);
-            return;
+            window.location.href = `/login?next=${navigate}`;
           }
+          return null;
         }
       } catch (error) {
-        return
+        console.error("getUser error:", error);
+        return null;
       }
       userState.value = { ...newUser };
       return newUser;
     }
+    return null;
   };
-
-  /*const getPermissionRole = async () => {
-        const getCurrentUser = getUser();
-    }*/
 
   return {
     getUser,
     setUser,
     removeUser,
-    /*getPermissionRole*/
   };
 };
 
