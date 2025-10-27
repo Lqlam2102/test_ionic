@@ -984,6 +984,11 @@
   dependencies:
     tslib "^2.1.0"
 
+"@capacitor/ios@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.npmjs.org/@capacitor/ios/-/ios-7.4.4.tgz"
+  integrity sha512-Xp3bGWlSQAwsZGngRMWTdoD2agdMV12Whnm+/xsYPxfQSj+Tksbr7r/8Mso7VWkpnTKO4iMlx762g3PjW+wi4w==
+
 "@ckeditor/ckeditor5-adapter-ckfinder@^36.0.1":
   version "36.0.1"
   resolved "https://registry.npmjs.org/@ckeditor/ckeditor5-adapter-ckfinder/-/ckeditor5-adapter-ckfinder-36.0.1.tgz"
